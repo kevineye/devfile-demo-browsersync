@@ -1,0 +1,23 @@
+apiVersion: 1.0.0
+metadata:
+  name: devfile-demo-browsersync
+projects:
+  - name: devfile-demo-browsersync
+    source:
+      type: git
+      location: https://github.com/kevineye/devfile-demo-browsersync.git
+      branch: master
+components:
+  - alias: browsersync
+    type: dockerimage
+    image: kevineye/devfile-demo-browsersync
+    memoryLimit: 256Mi
+    mountSources: true
+    endpoints:
+      - name: web
+        port: 3000
+      - name: browsersync-ui
+        port: 3001
+    env:
+      - name: DOCROOT
+        value: $(CHE_PROJECTS_ROOT)/devfile-demo-browsersync/docroot
