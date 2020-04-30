@@ -5,7 +5,7 @@ do
   if [ -d "$DOCROOT" ]
   then
     cd "$DOCROOT"
-    browser-sync start --no-open --directory --server --files .
+    browser-sync start --no-open --no-ui --directory --server --files .
   else
     echo "watiting for $DOCROOT"
   fi
