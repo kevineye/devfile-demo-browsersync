@@ -1,4 +1,13 @@
 #!/bin/sh -e
 
-cd "$DOCROOT"
-browser-sync start --no-open --directory --server --files .
+while [ 1 ]
+do
+  if [ -d "$DOCROOT" ]
+  then
+    cd "$DOCROOT"
+    browser-sync start --no-open --directory --server --files .
+  else
+    echo "watiting for $DOCROOT"
+  fi
+  sleep 2
+done
